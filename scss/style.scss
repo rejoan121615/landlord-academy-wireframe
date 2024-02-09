@@ -1,0 +1,234 @@
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;300;500;700;900&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// root variables
+$font-montserrat: "Montserrat", sans-serif;
+$font-inter: "Inter", sans-serif;
+$col-secondary: rgba(34, 92, 203, 1);
+$col-text-label: rgba(52, 64, 84, 1);
+$col-text-text: rgba(131, 145, 162, 1);
+// component s
+// auto defined code
+%mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+%text-mont-12-500 {
+  font-family: $font-montserrat;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 123%;
+}
+
+%text-mont-14-700 {
+  font-family: $font-montserrat;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 123%;
+}
+
+%text-inter-16-400 {
+  font-family: $font-inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+%flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+// mixing
+
+@mixin py($t, $b) {
+  padding-top: $t;
+  padding-bottom: $b;
+}
+
+@mixin px($l, $r) {
+  padding-left: $l;
+  padding-right: $r;
+}
+
+@mixin my($t, $b) {
+  margin-top: $t;
+  margin-bottom: $b;
+}
+
+@mixin mx($l, $r) {
+  margin-left: $l;
+  margin-right: $r;
+}
+
+// base style
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-montserrat;
+}
+
+img {
+  width: 100%;
+}
+
+#login {
+  background: url("https://storage.googleapis.com/msgsndr/e3KBbWQBefm1wTGRLZ1x/media/65c63842cf01df921e656491.png")
+    no-repeat center center;
+  background-size: 100% 100%;
+}
+
+.btn {
+  border: 0px;
+}
+
+// main style
+section {
+  width: 100%;
+  height: 100%;
+  .container {
+    padding: 25px 16px;
+  }
+  .company {
+    padding-top: 30px;
+  }
+  .logo__figure {
+    width: 197px;
+    height: 51px;
+    @extend %mx-auto;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .company__text {
+    @extend %text-mont-12-500;
+    margin-top: 17px;
+    @include px(25px, 25px);
+    text-align: center;
+  }
+}
+
+.form__wrap {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.02);
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 145px;
+}
+// form caption
+.form__caption {
+  .form__title {
+    @extend %text-mont-14-700;
+    color: $col-secondary;
+    text-transform: uppercase;
+    text-align: center;
+  }
+}
+// main form
+.form {
+  margin-top: 10px;
+  .input__wrap {
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 8px;
+    &:first-child {
+      margin-top: 0px;
+    }
+  }
+  .form__label {
+    @extend %text-mont-12-500;
+    text-transform: uppercase;
+    color: $col-text-label;
+  }
+  .form__input {
+    margin-top: 5px;
+    @extend %text-inter-16-400;
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+    border: 1px solid rgba(238, 242, 247, 1);
+    color: $col-text-text;
+    padding: 6px 14px;
+    border-radius: 8px;
+  }
+
+  .btn__wrap {
+    margin-top: 10px;
+  }
+  .form__btn {
+    height: 50px;
+    width: 100%;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.02);
+    background-color: $col-secondary;
+    @extend %text-mont-14-700;
+    font-size: 16px;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: white;
+  }
+}
+
+// other authorization
+.service {
+  .service__text {
+    @extend %text-mont-12-500;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    @include my(10px, 10px);
+  }
+
+  .service__list {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .service__item {
+    width: 132px;
+    height: 60px;
+    border-radius: 10px;
+    border: 1px solid $col-secondary;
+    @extend %flex-center;
+    &.service__apple {
+      img {
+        width: 32px;
+        height: 38px;
+      }
+    }
+    &.service__google {
+      img {
+        width: 38px;
+        height: 38px;
+      }
+    }
+  }
+}
+
+.link {
+    @extend %text-mont-12-500;
+    text-transform: uppercase;
+    color: $col-secondary;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.forgot__signup {
+    text-align: center;
+    margin-top: 25px;
+    @extend %text-mont-12-500;
+}
+
+.forgot__pass {
+}
+.signup__txt {
+    margin-top: 10px;
+}

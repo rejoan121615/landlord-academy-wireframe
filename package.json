@@ -1,0 +1,18 @@
+{
+  "name": "han-dol-kim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon script/scss-to-css.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chokidar": "^3.6.0",
+    "fs": "^0.0.1-security",
+    "nodemon": "^3.0.3",
+    "sass": "^1.70.0"
+  }
+}
