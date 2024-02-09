@@ -7,7 +7,13 @@ $font-inter: "Inter", sans-serif;
 $col-secondary: rgba(34, 92, 203, 1);
 $col-text-label: rgba(52, 64, 84, 1);
 $col-text-text: rgba(131, 145, 162, 1);
-// component s
+// breakpoints
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+$xxxl: 1800px;
 // auto defined code
 %mx-auto {
   margin-left: auto;
@@ -40,7 +46,13 @@ $col-text-text: rgba(131, 145, 162, 1);
   justify-content: center;
   align-items: center;
 }
+
 // mixing
+@mixin resp($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}
 
 @mixin py($t, $b) {
   padding-top: $t;
@@ -81,14 +93,49 @@ img {
 #login {
   background: url("https://storage.googleapis.com/msgsndr/e3KBbWQBefm1wTGRLZ1x/media/65c63842cf01df921e656491.png")
     no-repeat center center;
-  background-size: 100% 100%;
+  background-size: cover;
+  min-height: 100vh;
+  //   responsive
+  @include resp($md) {
+    background-image: url("https://storage.googleapis.com/msgsndr/e3KBbWQBefm1wTGRLZ1x/media/65c638420576cf0ce6c0e516.png");
+}
 }
 
 .btn {
   border: 0px;
 }
 
+// commpn style
+.login_component {
+    @include resp($md) {
+        min-height: 100vh;
+    }
+}
+
+
+
+.company,
+.form__wrap {
+  max-width: 330px;
+  @include mx(auto, auto);
+
+  // responsive
+  @include resp($md) {
+    @include mx(initial, initial);
+  }
+}
+
 // main style
+.login_component {
+  @include resp($md) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 850px;
+    @include mx( auto, auto);
+  }
+}
+
 section {
   width: 100%;
   height: 100%;
@@ -97,11 +144,19 @@ section {
   }
   .company {
     padding-top: 30px;
+    // responsive 
+    @include resp($md) {
+        padding-top: 0px;
+    }
   }
   .logo__figure {
     width: 197px;
     height: 51px;
     @extend %mx-auto;
+    // responsive
+    @include resp($md) {
+      @include mx(initial, initial);
+    }
     img {
       width: 100%;
       height: 100%;
@@ -112,6 +167,11 @@ section {
     margin-top: 17px;
     @include px(25px, 25px);
     text-align: center;
+    // responsive
+    @include resp($md) {
+      @include px(initial, initial);
+      text-align: left;
+    }
   }
 }
 
@@ -121,6 +181,10 @@ section {
   border-radius: 10px;
   padding: 20px;
   margin-top: 145px;
+  //   responsive
+  @include resp($md) {
+    margin-top: 0px;
+  }
 }
 // form caption
 .form__caption {
@@ -202,6 +266,7 @@ section {
       img {
         width: 32px;
         height: 38px;
+        margin-top: -4px;
       }
     }
     &.service__google {
@@ -214,21 +279,21 @@ section {
 }
 
 .link {
-    @extend %text-mont-12-500;
-    text-transform: uppercase;
-    color: $col-secondary;
-    text-decoration: none;
-    font-weight: 700;
+  @extend %text-mont-12-500;
+  text-transform: uppercase;
+  color: $col-secondary;
+  text-decoration: none;
+  font-weight: 700;
 }
 
 .forgot__signup {
-    text-align: center;
-    margin-top: 25px;
-    @extend %text-mont-12-500;
+  text-align: center;
+  margin-top: 25px;
+  @extend %text-mont-12-500;
 }
 
 .forgot__pass {
 }
 .signup__txt {
-    margin-top: 10px;
+  margin-top: 10px;
 }
