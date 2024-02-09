@@ -41,6 +41,27 @@ $xxxl: 1800px;
   line-height: 150%;
 }
 
+%text-mont-36-600 {
+  font-family: $font-montserrat;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 50px;
+}
+
+%text-mont-24-400 {
+  font-family: $font-montserrat;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 33px;
+}
+
+%text-mont-36-600 {
+  font-family: $font-montserrat;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 50px;
+}
+
 %flex-center {
   display: flex;
   justify-content: center;
@@ -98,21 +119,12 @@ img {
   //   responsive
   @include resp($md) {
     background-image: url("https://storage.googleapis.com/msgsndr/e3KBbWQBefm1wTGRLZ1x/media/65c638420576cf0ce6c0e516.png");
-}
+  }
 }
 
 .btn {
   border: 0px;
 }
-
-// commpn style
-.login_component {
-    @include resp($md) {
-        min-height: 100vh;
-    }
-}
-
-
 
 .company,
 .form__wrap {
@@ -126,27 +138,38 @@ img {
 }
 
 // main style
-.login_component {
+.login__component {
+  //   responsive
   @include resp($md) {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 850px;
+    min-height: 100vh;
+    @include mx(auto, auto);
+  }
+  @include resp($xl) {
+    max-width: initial;
+    padding: 25px 25px 25px 150px;
+  }
+  @include resp($xxxl) {
     @include mx( auto, auto);
+    max-width: 1824px;
+    padding: 0px 0px 0px 150px;
   }
 }
 
 section {
   width: 100%;
   height: 100%;
-  .container {
-    padding: 25px 16px;
-  }
   .company {
     padding-top: 30px;
-    // responsive 
+    // responsive
     @include resp($md) {
-        padding-top: 0px;
+      padding-top: 0px;
+    }
+    @include resp($xl) {
+      max-width: 410px;
     }
   }
   .logo__figure {
@@ -157,11 +180,17 @@ section {
     @include resp($md) {
       @include mx(initial, initial);
     }
+
+    @include resp($xl) {
+      width: 323px;
+      height: 83px;
+    }
     img {
       width: 100%;
       height: 100%;
     }
   }
+
   .company__text {
     @extend %text-mont-12-500;
     margin-top: 17px;
@@ -171,6 +200,33 @@ section {
     @include resp($md) {
       @include px(initial, initial);
       text-align: left;
+    }
+
+    @include resp($xl) {
+      display: none;
+    }
+  }
+
+  .company__slogan {
+    display: none;
+    // responsive
+    @include resp($xl) {
+      margin-top: 45px;
+      display: flex;
+      flex-flow: column wrap;
+      row-gap: 20px;
+    }
+    .slogan__title {
+      @extend %text-mont-36-600;
+      line-height: 45px;
+      text-transform: capitalize;
+      color: rgba(8, 24, 58, 1);
+    }
+
+    .slogan__text {
+      @extend %text-mont-24-400;
+      color: rgba(8, 24, 58, 1);
+      text-transform: capitalize;
     }
   }
 }
@@ -185,6 +241,12 @@ section {
   @include resp($md) {
     margin-top: 0px;
   }
+  @include resp($xl) {
+    width: 100%;
+    max-width: 630px;
+    @include px(80px, 80px);
+    @include py(94px, 76px);
+  }
 }
 // form caption
 .form__caption {
@@ -193,15 +255,37 @@ section {
     color: $col-secondary;
     text-transform: uppercase;
     text-align: center;
+    width: 200px;
+    @include mx(auto, auto);
+
+    // responsive
+    @include resp($xl) {
+      font-size: 24px;
+      line-height: 30px;
+      color: rgba(52, 64, 84, 1);
+      width: initial;
+    }
   }
 }
 // main form
 .form {
   margin-top: 10px;
+  //   responsive
+  @include resp($xl) {
+    width: 420px;
+    margin-top: 80px;
+    @include mx(auto, auto);
+  }
   .input__wrap {
     display: flex;
     flex-flow: column wrap;
     margin-top: 8px;
+
+    // responsive
+    @include resp($xl) {
+      margin-top: 24px;
+    }
+
     &:first-child {
       margin-top: 0px;
     }
@@ -210,6 +294,12 @@ section {
     @extend %text-mont-12-500;
     text-transform: uppercase;
     color: $col-text-label;
+    // responsive
+    @include resp($xl) {
+      font-size: 18px;
+      line-height: 20px;
+      color: rgba(8, 24, 58, 1);
+    }
   }
   .form__input {
     margin-top: 5px;
@@ -219,10 +309,20 @@ section {
     color: $col-text-text;
     padding: 6px 14px;
     border-radius: 8px;
+
+    // responsive
+    @include resp($xl) {
+      margin-top: 8px;
+      padding: 20px 14px;
+    }
   }
 
   .btn__wrap {
     margin-top: 10px;
+    // responsive
+    @include resp($xl) {
+      margin-top: 48px;
+    }
   }
   .form__btn {
     height: 50px;
@@ -238,22 +338,44 @@ section {
     border-radius: 10px;
     text-transform: uppercase;
     color: white;
+
+    // responsive
+    @include resp($xl) {
+      height: 60px;
+      font-size: 18px;
+      line-height: 20px;
+    }
   }
 }
 
 // other authorization
 .service {
+  margin-top: 10px;
+  // responsive
+  @include resp($xl) {
+    margin-top: 36px;
+  }
   .service__text {
     @extend %text-mont-12-500;
     color: rgba(0, 0, 0, 0.8);
     text-align: center;
-    @include my(10px, 10px);
+    margin-bottom: 10px;
+    // responsive
+    @include resp($xl) {
+      margin-bottom: 16px;
+      font-size: 18px;
+      line-height: 22px;
+    }
   }
 
   .service__list {
     display: flex;
     justify-content: center;
     gap: 4px;
+    // responsive
+    @include resp($xl) {
+      column-gap: 20px;
+    }
   }
 
   .service__item {
@@ -262,6 +384,11 @@ section {
     border-radius: 10px;
     border: 1px solid $col-secondary;
     @extend %flex-center;
+
+    // responsive
+    @include resp($xl) {
+      width: 155px;
+    }
     &.service__apple {
       img {
         width: 32px;
@@ -273,6 +400,11 @@ section {
       img {
         width: 38px;
         height: 38px;
+        // responsive
+        @include resp($xl) {
+          width: 33px;
+          height: 33px;
+        }
       }
     }
   }
@@ -284,16 +416,35 @@ section {
   color: $col-secondary;
   text-decoration: none;
   font-weight: 700;
+
+  //   responsive
+  @include resp($xl) {
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 
 .forgot__signup {
   text-align: center;
   margin-top: 25px;
   @extend %text-mont-12-500;
+  //   responsive
+  @include resp($xl) {
+    margin-top: 40px;
+  }
 }
 
 .forgot__pass {
 }
+
 .signup__txt {
   margin-top: 10px;
+  //   responsive
+  @include resp($xl) {
+    margin-top: 13px;
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
