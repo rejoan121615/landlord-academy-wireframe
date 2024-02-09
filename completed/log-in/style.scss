@@ -139,13 +139,15 @@ img {
 
 // main style
 .login__component {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
   //   responsive
   @include resp($md) {
-    display: flex;
-    justify-content: space-between;
+    flex-flow: row wrap;
     align-items: center;
     max-width: 850px;
-    min-height: 100vh;
     @include mx(auto, auto);
   }
   @include resp($xl) {
@@ -236,7 +238,8 @@ section {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
-  margin-top: 145px;
+  // margin-top: 35px;
+  @include my( 35px, 35px);
   //   responsive
   @include resp($md) {
     margin-top: 0px;
@@ -447,10 +450,4 @@ section {
     font-size: 18px;
     line-height: 22px;
   }
-}
-
-
-.rejoan {
-  background-color: green;
-  color: green;
 }
